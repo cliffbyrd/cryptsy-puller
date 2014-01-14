@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 require 'mechanize'
 
 # This method retrieves info from cryptsy.com
@@ -17,10 +18,36 @@ def parse_info(page, ary)
 	return ary
 end
 
-ary = []
-page = retrieve_info
-ary_return = parse_info(page, ary)
+def displayWelcomeInfo
+	puts "-b | --bitcoin : shows all currencies that can be traded in BTC"
+	puts "-h | --help : display this information again"
+	puts "-l | --litecoin: shows all currencies that can be traded in LTC"
+	puts "-s | --search : enter a currency to search for"
+end
 
-puts ary_return
-#doge = ary[0].split
-#puts "The current trade price of " + doge[0] + " is " + doge[1]
+def showBitcoinCurrency
+	puts "Coming Soon!"
+end
+
+def showLitecoinCurrency
+	puts "Coming Soon!"
+end
+
+def	searchAndShowCurrency
+	puts "Coming Soon!"
+end
+
+
+#This is the beginning of the script
+case ARGV[0]
+when nil, "-h", "--help"
+	displayWelcomeInfo
+when "-b", "--bitcoin"
+	showBitcoinCurrency
+when "-l", "--litecoin"
+	showLitecoinCurrency
+when "-s", "--search"
+	searchAndShowCurrency
+else
+	displayWelcomeInfo
+end
